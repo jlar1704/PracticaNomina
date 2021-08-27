@@ -30,7 +30,7 @@ namespace Practica2_Nomina.Pages
             get { return CalcularISR(Sueldo - AFP - ARS); }
         }
 
-        private double CalcularAFP(double sueldo)
+        private double CalcularARS(double sueldo)
         {
             double TopeAFP = 13482.00 * 10;
 
@@ -42,7 +42,7 @@ namespace Practica2_Nomina.Pages
             return (sueldo * 3.04) / 100;
         }
 
-        private double CalcularARS(double sueldo)
+        private double CalcularAFP(double sueldo)
         {
             double TopeARS = 13482.00 * 20;
 
