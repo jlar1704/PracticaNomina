@@ -1,0 +1,65 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<style scoped>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Calculo de Rentenciones Sueldos entre 40k y 150k</h1>
+
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Cargo</th>
+            <th>Sueldo</th>
+            <th>AFP</th>
+            <th>ARS</th>
+            <th>ISR</th>
+            <th>Sueldo Neto</th>
+        </tr>
+        @foreach (empleado empleado in @Model.empleados)
+        {
+            <tr>
+                <td>@empleado.Nombre</td>
+                <td>@empleado.Apellido</td>
+                <td>@empleado.Cargo</td>
+                <td>
+                    RD$ @string.Format("{0:#,0.00}", @empleado.Sueldo)
+                </td>
+                <td>
+                    RD$ @string.Format("{0:#,0.00}", @empleado.AFP)
+                </td>
+                <td>
+                    RD$ @string.Format("{0:#,0.00}", @empleado.ARS)
+                </td>
+                <td>
+                    RD$ @string.Format("{0:#,0.00}", @empleado.ISR)
+                </td>
+                <td>
+                    RD$ @string.Format("{0:#,0.00}", @empleado.Sueldo - @empleado.AFP - @empleado.ARS - @empleado.ISR)
+                </td>
+            </tr>
+        }
+    </table>
+
+
+</div>
